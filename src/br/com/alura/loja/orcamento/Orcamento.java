@@ -7,8 +7,9 @@ public class Orcamento {
     private BigDecimal valor;
     private Integer quantidadeItens;
 
-    public Orcamento(BigDecimal valor) {
+    public Orcamento(BigDecimal valor, Integer quantidadeItens) {
         this.valor = valor;
+        this.quantidadeItens = quantidadeItens;
     }
 
     public BigDecimal getValor() {
