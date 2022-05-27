@@ -3,23 +3,24 @@ package br.com.alura.loja;
 import br.com.alura.loja.descontos.CalculadoraDeDescontos;
 import br.com.alura.loja.impostos.CalculadoraDeImpostos;
 import br.com.alura.loja.impostos.ICMS;
-import br.com.alura.loja.impostos.ISS;
 import br.com.alura.loja.orcamento.Orcamento;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.math.BigDecimal;
 
-public class TestesDesconto {
+public class Testes {
 
     public static void main(String args[]) {
-        Orcamento primeiro = new Orcamento(new BigDecimal("100"), 1);
-        Orcamento segundo = new Orcamento(new BigDecimal("1000"), 1);
+        Orcamento o1 = new Orcamento(new BigDecimal("100"), 1);
+        Orcamento o2 = new Orcamento(new BigDecimal("1000"), 1);
 
-        Desconto(segundo);
+        Desconto(o1, o2);
     }
 
-    private static void Desconto(Orcamento orcamento) {
+    private static void Desconto(Orcamento o1, Orcamento o2) {
         CalculadoraDeDescontos calculadora = new CalculadoraDeDescontos();
-        System.out.println(calculadora.calcular(orcamento));
+        System.out.println(calculadora.calcular(o1));
+        System.out.println(calculadora.calcular(o2));
     }
 
     private static void Imposto(Orcamento orcamento) {
