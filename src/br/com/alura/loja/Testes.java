@@ -5,6 +5,7 @@ import br.com.alura.loja.impostos.CalculadoraDeImpostos;
 import br.com.alura.loja.impostos.ICMS;
 import br.com.alura.loja.orcamento.Orcamento;
 import br.com.alura.loja.pedido.GeraPedido;
+import br.com.alura.loja.pedido.GeraPedidoHandler;
 import br.com.alura.loja.pedido.Pedido;
 import com.sun.org.apache.xpath.internal.operations.Or;
 
@@ -31,7 +32,8 @@ public class Testes {
         Integer qtdItens = Integer.parseInt(args[2]);
 
         GeraPedido geraPedido = new GeraPedido(cliente, vlOrcamento, qtdItens);
-        geraPedido.executa();
+        GeraPedidoHandler handler = new GeraPedidoHandler(/*dependencias*/);
+        handler.execute(geraPedido);
 
     }
 

@@ -18,14 +18,15 @@ public class GeraPedido {
         this.qtdItens = qtdItens;
     }
 
-    public void executa() {
-
-        Orcamento o1 = new Orcamento(this.valorOrcamento, this.qtdItens);
-
-        Pedido pedido = new Pedido(cliente, LocalDateTime.now(), o1);
-        System.out.println("Salvar Pedido no BD");
-        System.out.println("Enviar Email com Dados do Pedido");
-
+    public String getCliente() {
+        return cliente;
     }
 
+    public BigDecimal getValorOrcamento() {
+        return valorOrcamento;
+    }
+
+    public Integer getQtdItens() {
+        return qtdItens;
+    }
 }
