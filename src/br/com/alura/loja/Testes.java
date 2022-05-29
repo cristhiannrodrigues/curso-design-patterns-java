@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class Testes {
 
     public static void main(String args[]) {
-        Orcamento o1 = new Orcamento(new BigDecimal("100"), 1);
+        Orcamento o1 = new Orcamento(new BigDecimal("200"), 6);
         Orcamento o2 = new Orcamento(new BigDecimal("1000"), 1);
 
         Desconto(o1, o2);
