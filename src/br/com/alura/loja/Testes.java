@@ -7,10 +7,13 @@ import br.com.alura.loja.orcamento.Orcamento;
 import br.com.alura.loja.pedido.GeraPedido;
 import br.com.alura.loja.pedido.GeraPedidoHandler;
 import br.com.alura.loja.pedido.Pedido;
+import br.com.alura.loja.pedido.acao.EnviarEmailPedido;
+import br.com.alura.loja.pedido.acao.SalvarPedidoNoBancoDeDados;
 import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class Testes {
 
@@ -23,16 +26,21 @@ public class Testes {
         Orcamento o2 = new Orcamento(new BigDecimal("1000"), 1);
 
         //testesDesconto(o1, o2);
+
+        testesPedido();
     }
 
-    private static void testesPedido(String args[]) {
+    private static void testesPedido() {
 
-        String cliente = args[0];
-        BigDecimal vlOrcamento = new BigDecimal(args[1]);
-        Integer qtdItens = Integer.parseInt(args[2]);
+        String cliente = "Cristhiann";
+        BigDecimal vlOrcamento = new BigDecimal("100");
+        Integer qtdItens = 2;
 
         GeraPedido geraPedido = new GeraPedido(cliente, vlOrcamento, qtdItens);
-        GeraPedidoHandler handler = new GeraPedidoHandler(/*dependencias*/);
+        GeraPedidoHandler handler = new GeraPedidoHandler(Arrays.asList(
+                new SalvarPedidoNoBancoDeDados(),
+                new EnviarEmailPedido()
+        ));
         handler.execute(geraPedido);
 
     }
